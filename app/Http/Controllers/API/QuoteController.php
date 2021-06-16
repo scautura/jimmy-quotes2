@@ -16,9 +16,7 @@ class QuoteController extends Controller
      */
     public function index()
     {
-        $quotes=self::loadquotes();
-
-        return json_encode($quotes);
+        return json_encode(\App\Models\Quote::get());
     }
 
     /**
@@ -40,7 +38,7 @@ class QuoteController extends Controller
      */
     public function show($id)
     {
-        //
+        return json_encode(\App\Models\Quote::find($id));
     }
 
     /**
@@ -73,11 +71,6 @@ class QuoteController extends Controller
      */
     public function loadquotes()
     {
-        $json=Storage::disk('local')->get("quotes.json");
-        $json=json_decode($json, true);
 
-        $server=intval(env('DISCORD_SERVER'));
-
-        return $json[$server];
     }
 }

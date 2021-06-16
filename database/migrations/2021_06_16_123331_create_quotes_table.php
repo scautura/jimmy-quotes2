@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDiscordUsersTable extends Migration
+class CreateQuotesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateDiscordUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('discord_users', function (Blueprint $table) {
-            $table->integer('id')->unsigned();
-            $table->string('name')->nullable();
-            $table->primary('id');
+        Schema::create('quotes', function (Blueprint $table) {
+            $table->increments('id')->unsigned();
+            $table->string('added_by');
+            $table->string('author_id')->nullable();
+            $table->string('author_name');
+            $table->string('text');
         });
     }
 
@@ -27,6 +29,6 @@ class CreateDiscordUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('discord_users');
+        Schema::dropIfExists('quotes');
     }
 }

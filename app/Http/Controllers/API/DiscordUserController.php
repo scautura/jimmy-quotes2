@@ -14,7 +14,7 @@ class DiscordUserController extends Controller
      */
     public function index()
     {
-        //
+        return json_encode(\App\Models\DiscordUser::get());
     }
 
     /**
@@ -36,7 +36,7 @@ class DiscordUserController extends Controller
      */
     public function show($id)
     {
-        //
+        return json_encode(\App\Models\DiscordUser::find($id));
     }
 
     /**
