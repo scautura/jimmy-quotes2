@@ -16,7 +16,7 @@ class QuoteController extends Controller
      */
     public function index()
     {
-        return json_encode(\App\Models\Quote::get());
+        return \App\Models\Quote::get();
     }
 
     /**
@@ -38,7 +38,7 @@ class QuoteController extends Controller
      */
     public function show($id)
     {
-        return json_encode(\App\Models\Quote::find($id));
+        return \App\Models\Quote::find($id);
     }
 
     /**
@@ -69,8 +69,8 @@ class QuoteController extends Controller
      *
      * @return array Array of quotes,
      */
-    public function loadquotes()
+    public function random()
     {
-
+        return \App\Models\Quote::inRandomOrder()->first();
     }
 }
