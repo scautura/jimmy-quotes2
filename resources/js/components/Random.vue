@@ -1,13 +1,8 @@
 <template>
 <div>
-    <b-form-group
-        id="fieldset-horizontal"
-        label-cols="auto"
-        label="Filter"
-        label-for="filter"
-    >
+    <b-form-group horizontal label="Filter" class="mb-0">
         <b-input-group>
-            <b-form-input id="filter" v-model="filter" placeholder="Type to Search"></b-form-input>
+            <b-form-input v-model="filter" placeholder="Type to Search"></b-form-input>
             <b-input-group-append>
                 <b-btn :disabled="!filter" @click="filter = ''">Clear</b-btn>
             </b-input-group-append>
@@ -54,7 +49,7 @@ module.exports = {
   methods: {
     read() {
       this.mute = true;
-      window.axios.get("/api/quotes").then(({ data }) => {
+      window.axios.get("/api/quotes/random").then(({ data }) => {
         data.forEach(quote => {
           this.quotes.push(new Quote(quote, this.quotes.length + 1));
         });
