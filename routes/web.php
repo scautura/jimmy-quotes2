@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use RestCord\DiscordClient;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +15,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
+});
+
+Route::get('/', function () {
+    $discord = new DiscordClient(['token' => env('DISCORD_BOT_SECRET')]);
+
+    $quotes = \App\Models\Quote::get();
+
+    $users = \App\Models\DiscordUser::get();
+
+    return view(
+        'quotes', [
+            "quotes" => $quotes,
+            "discord" => $discord,
+            "guild" => $discord->guild->getGuild(['guild.id' => intval(env('DISCORD_SERVER'))]),
+            "users" => $users
+        ]
+    );
 });
