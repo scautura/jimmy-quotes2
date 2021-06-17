@@ -5,6 +5,7 @@
     </head>
     <body>
         <div id="app" class="table-responsive">
+            <navheader title="{{ $guild->name }}"></navheader>
             <quotes></quotes>
         </div>
 

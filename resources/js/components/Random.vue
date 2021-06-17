@@ -1,15 +1,15 @@
 <template>
 <div>
-    <b-form-group horizontal label="Filter" class="mb-0">
-        <b-input-group>
-            <b-form-input v-model="filter" placeholder="Type to Search"></b-form-input>
-            <b-input-group-append>
-                <b-btn :disabled="!filter" @click="filter = ''">Clear</b-btn>
-            </b-input-group-append>
-        </b-input-group>
-    </b-form-group>
-    <b-table striped hover :items="quotes" :fields="fields" :per-page="perPage" :current-page="currentPage" :filter="filter" @filtered="onFiltered"></b-table>
-    <b-pagination align="center" :total-rows="totalRows" :per-page="perPage" v-model="currentPage"></b-pagination>
+  <b-form-group horizontal label="Filter" class="mb-0">
+    <b-input-group>
+      <b-form-input v-model="filter" placeholder="Type to Search"></b-form-input>
+      <b-input-group-append>
+        <b-btn :disabled="!filter" @click="filter = ''">Clear</b-btn>
+      </b-input-group-append>
+    </b-input-group>
+  </b-form-group>
+  <b-table striped hover :items="quotes" :fields="fields" :per-page="perPage" :current-page="currentPage" :filter="filter" @filtered="onFiltered"></b-table>
+  <b-pagination align="center" :total-rows="totalRows" :per-page="perPage" v-model="currentPage"></b-pagination>
 </div>
 </template>
 

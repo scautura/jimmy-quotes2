@@ -1,20 +1,7 @@
 <template>
 <div>
-    <b-form-group
-        id="fieldset-horizontal"
-        label-cols="auto"
-        label="Filter"
-        label-for="filter"
-    >
-        <b-input-group>
-            <b-form-input id="filter" v-model="filter" placeholder="Type to Search"></b-form-input>
-            <b-input-group-append>
-                <b-btn :disabled="!filter" @click="filter = ''">Clear</b-btn>
-            </b-input-group-append>
-        </b-input-group>
-    </b-form-group>
-    <b-table striped hover :items="quotes" :fields="fields" :per-page="perPage" :current-page="currentPage" :filter="filter" @filtered="onFiltered"></b-table>
-    <b-pagination align="center" :total-rows="totalRows" :per-page="perPage" v-model="currentPage"></b-pagination>
+  <b-table striped hover :items="quotes" :fields="fields" :per-page="perPage" :current-page="currentPage" :filter="filter" @filtered="onFiltered"></b-table>
+  <b-pagination align="center" :total-rows="totalRows" :per-page="perPage" v-model="currentPage"></b-pagination>
 </div>
 </template>
 
@@ -48,8 +35,12 @@ module.exports = {
       perPage: 25,
       currentPage: 1,
       totalRows: 0,
-      filter: null
     };
+  },
+  computed: {
+    filter () {
+      return this.$store.state.filter;
+    }
   },
   methods: {
     read() {
@@ -65,6 +56,13 @@ module.exports = {
     onFiltered(filteredItems) {
       this.totalRows = filteredItems.length;
       this.currentPage = 1;
+    },
+    clearFilter() {
+        this.filter = '';
+    },
+    filterMessages(filter) {
+        this.filter = filter;
+        this.$store.commit('updateFilter', filter);
     }
   },
   created() {

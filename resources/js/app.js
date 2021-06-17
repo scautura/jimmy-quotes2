@@ -7,14 +7,15 @@
  require('./bootstrap');
 
  import Vue from 'vue';
-
- //window.Vue = require('vue');
-
+ import Vuex from 'vuex';
  import BootstrapVue from 'bootstrap-vue';
 
  import Quotes from './components/Quotes.vue';
+ import Navheader from './components/Navheader.vue';
 
  Vue.use(BootstrapVue);
+ Vue.use(Vuex);
+
 
  /**
   * Next, we will create a fresh Vue application instance and attach it to
@@ -22,10 +23,22 @@
   * or customize the JavaScript scaffolding to fit your unique needs.
   */
 
- // Vue.component('example-component', require('./components/ExampleComponent.vue'));
-
  Vue.component('quotes', Quotes);
+ Vue.component('navheader', Navheader);
+
+ const store = new Vuex.Store({
+     state: {
+         filter: ''
+     },
+     mutations: {
+        updateFilter (state, message) {
+            state.filter = message;
+        }
+    }
+ })
 
  const app = new Vue({
-     el: '#app'
+     el: '#app',
+     store: store,
+     components: { Quotes, Navheader }
  });
