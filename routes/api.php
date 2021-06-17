@@ -18,8 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/quotes/random', 'App\Http\Controllers\API\QuoteController@random');
+
 Route::apiResources([
     'quotes' => 'App\Http\Controllers\API\QuoteController',
     'users' => 'App\Http\Controllers\API\DiscordUserController'
 ]);
-Route::get('/quote/random', 'App\Http\Controllers\API\QuoteController@random');
