@@ -4,8 +4,12 @@
     <b-navbar-brand href="/">{{ title }} Quotes</b-navbar-brand>
     <b-navbar-nav class="ml-auto">
       <b-nav-form>
-        <b-form-input id="filter" :value="filter" @update="filterMessages" placeholder="Type to Filter"></b-form-input>
-        <b-button :disabled="!filter" @click="clearFilter">Clear</b-button>
+        <b-input-group>
+          <b-form-input id="filter" :value="filter" @update="filterMessages" placeholder="Type to Filter"></b-form-input>
+          <b-input-group-append>
+            <b-button :disabled="!filter" @click="clearFilter">Clear</b-button>
+          </b-input-group-append>
+        </b-input-group>
       </b-nav-form>
     </b-navbar-nav>
   </b-navbar>

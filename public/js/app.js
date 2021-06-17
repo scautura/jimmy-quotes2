@@ -1854,6 +1854,10 @@ module.exports = {
 //
 //
 //
+//
+//
+//
+//
 module.exports = {
   props: {
     title: String
@@ -65197,22 +65201,34 @@ var render = function() {
               _c(
                 "b-nav-form",
                 [
-                  _c("b-form-input", {
-                    attrs: {
-                      id: "filter",
-                      value: _vm.filter,
-                      placeholder: "Type to Filter"
-                    },
-                    on: { update: _vm.filterMessages }
-                  }),
-                  _vm._v(" "),
                   _c(
-                    "b-button",
-                    {
-                      attrs: { disabled: !_vm.filter },
-                      on: { click: _vm.clearFilter }
-                    },
-                    [_vm._v("Clear")]
+                    "b-input-group",
+                    [
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "filter",
+                          value: _vm.filter,
+                          placeholder: "Type to Filter"
+                        },
+                        on: { update: _vm.filterMessages }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "b-input-group-append",
+                        [
+                          _c(
+                            "b-button",
+                            {
+                              attrs: { disabled: !_vm.filter },
+                              on: { click: _vm.clearFilter }
+                            },
+                            [_vm._v("Clear")]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
                   )
                 ],
                 1
