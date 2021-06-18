@@ -4,7 +4,8 @@
     <b-nav-item @click="loadRandomQuote()">Random Quote <b-spinner small v-show="loading"></b-spinner></b-nav-item>
   </b-navbar-nav>
   <b-modal ref="random-quote" id="random-quote" title="Random Quote" ok-only>
-    <p>{{ quote.text }}</p>
+    <div class="quote-text">{{ quote.text }}</div>
+    <div class="quote-author">{{ quote.author_name }}</div>
   </b-modal>
 </div>
 </template>
@@ -32,7 +33,6 @@ module.exports = {
     loadRandomQuote () {
       this.loading = true;
       window.axios.get("/api/quotes/random").then(({ data }) => {
-        console.log(data);
         this.quote = data;
         this.$refs['random-quote'].show();
         this.loading = false;
@@ -44,4 +44,14 @@ module.exports = {
 </script>
 
 <style>
+div.quote-text {
+  
+}
+
+div.quote-author {
+  text-align: right;
+  font-weight: bold;
+  font-style: italic;
+  font-size: larger;
+}
 </style>
