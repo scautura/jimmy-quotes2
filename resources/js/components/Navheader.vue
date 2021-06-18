@@ -2,6 +2,7 @@
 <div>
   <b-navbar toggleable="lg" type="dark" variant="dark">
     <b-navbar-brand href="/">{{ title }} Quotes</b-navbar-brand>
+    <random></random>
     <b-navbar-nav class="ml-auto">
       <b-nav-form>
         <b-input-group>
@@ -17,7 +18,6 @@
 </template>
 
 <script>
-
 module.exports = {
   props: {
     title: String

@@ -12,6 +12,7 @@
 
  import Quotes from './components/Quotes.vue';
  import Navheader from './components/Navheader.vue';
+ import Random from './components/Random.vue';
 
  Vue.use(BootstrapVue);
  Vue.use(Vuex);
@@ -25,6 +26,7 @@
 
  Vue.component('quotes', Quotes);
  Vue.component('navheader', Navheader);
+ Vue.component('random', Random);
 
  const store = new Vuex.Store({
      state: {
