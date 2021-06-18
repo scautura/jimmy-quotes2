@@ -44389,7 +44389,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\ndiv.quote-text {\n}\ndiv.quote-author {\n  text-align: right;\n  font-weight: bold;\n  font-style: italic;\n  font-size: larger;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\ndiv.quote-author {\n  text-align: right;\n  font-weight: bold;\n  font-style: italic;\n  font-size: larger;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -38,7 +38,16 @@ class QuoteController extends Controller
      */
     public function show($id)
     {
-        return \App\Models\Quote::find($id);
+        $result = \App\Models\Quote::find($id);
+        if($result == null) {
+            $result = array(
+                "id" => 0,
+                "added_by" => "0",
+                "author_id" => "0",
+                "author_name" => "RedBot",
+                "text" => "No quote for ".$id);
+        }
+        return response()->json($result);
     }
 
     /**

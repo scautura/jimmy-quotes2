@@ -44,10 +44,6 @@ module.exports = {
 </script>
 
 <style>
-div.quote-text {
-  
-}
-
 div.quote-author {
   text-align: right;
   font-weight: bold;
