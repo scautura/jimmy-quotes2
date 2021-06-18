@@ -33,9 +33,11 @@ module.exports = {
       this.loading = true;
       window.axios.get("/api/quotes/random").then(({ data }) => {
         console.log(data);
+        this.quote = data;
         this.$refs['random-quote'].show();
         this.loading = false;
       })
+
     }
   }
 }

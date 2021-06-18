@@ -2005,6 +2005,7 @@ module.exports = {
       window.axios.get("/api/quotes/random").then(function (_ref) {
         var data = _ref.data;
         console.log(data);
+        _this.quote = data;
 
         _this.$refs['random-quote'].show();
 
