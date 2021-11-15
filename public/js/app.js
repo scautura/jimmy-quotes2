@@ -65894,6 +65894,7 @@ var render = function() {
           _c(
             "b-nav-item",
             {
+              staticClass: "btn btn-secondary",
               on: {
                 click: function($event) {
                   return _vm.loadRandomQuote()

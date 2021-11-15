@@ -1,7 +1,7 @@
 <template>
 <div>
   <b-navbar-nav>
-    <b-nav-item @click="loadRandomQuote()">Random Quote <b-spinner small v-show="loading"></b-spinner></b-nav-item>
+    <b-nav-item class="btn btn-secondary" @click="loadRandomQuote()">Random Quote <b-spinner small v-show="loading"></b-spinner></b-nav-item>
   </b-navbar-nav>
   <b-modal ref="random-quote" id="random-quote" title="Random Quote" ok-only>
     <div class="quote-text">{{ quote.text }}</div>
